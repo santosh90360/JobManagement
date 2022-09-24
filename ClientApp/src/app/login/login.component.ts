@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Registration } from '../models/registration';
+import { Role } from '../models/role';
 import { AccountManageService } from '../services/account-manage.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,8 +12,9 @@ import { AccountManageService } from '../services/account-manage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  userReg: Registration = new Registration();  
-  constructor(private router: Router, private accountManage: AccountManageService) { }
+  userReg: Registration = new Registration(); 
+  Role = Role;
+  constructor(private router: Router, private accountManage: AccountManageService, private authService: AuthService) { }
 
   ngOnInit(): void {
   }
@@ -29,7 +32,9 @@ export class LoginComponent implements OnInit {
           //this.authService.login(data.result.userType);
           //this.authService.isLogin = true;
           this.userReg = new Registration();
-          this.router.navigate(['dashboard']);
+          this.authService.login(Role.Admin);
+          this.router.navigate(['/']);
+          //this.router.navigate(['dashboard']);
           debugger;
         }
         else {
@@ -40,4 +45,8 @@ export class LoginComponent implements OnInit {
         alert(error.message);
       });
   };
+
+  logout() {
+    this.authService.logout();
+  }
 }

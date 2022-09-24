@@ -16,6 +16,10 @@ import { Registration } from './models/registration';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { DashboardComponent } from './jobseeker/dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
+import { UserDirective } from './directives/user.directive';
+import { UserRoleDirective } from './directives/user-role.directive';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -30,25 +34,32 @@ import { DashboardComponent } from './jobseeker/dashboard/dashboard.component';
     ProductComponent,
     RegistrationComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserDirective,
+    UserRoleDirective
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'product', component: ProductComponent },
-      { path: 'register', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'dashboard', component: DashboardComponent }
+    AppRoutingModule
+    //RouterModule.forRoot([
+    //  { path: '', component: HomeComponent, pathMatch: 'full' },
+    //  { path: 'counter', component: CounterComponent },
+    //  { path: 'fetch-data', component: FetchDataComponent },
+    //  { path: 'product', component: ProductComponent },
+    //  { path: 'register', component: RegistrationComponent },
+    //  { path: 'login', component: LoginComponent },
+    //  { path: 'dashboard', component: DashboardComponent }
 
-    ])
+    //])
   ],
-  providers: [],
+  exports: [
+    UserDirective,
+    UserRoleDirective
+  ],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

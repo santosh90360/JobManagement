@@ -15,34 +15,47 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div
-        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
-        [ngClass]="{ show: isExpanded }"
-      >
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end" [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
               [routerLinkActiveOptions]="{ exact: true }">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <!--<li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>
+          </li>-->
 
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <!-- Authorized only -->
+          <li class="nav-item" *ngIf="isAdmin">
             <a class="nav-link text-dark" [routerLink]="['/product']">Product</a>
           </li>
 
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <!-- Anonymous only -->
+          <li class="nav-item" *ngIf="!isAdmin">
             <a class="nav-link text-dark" [routerLink]="['/register']">Registration</a>
           </li>
 
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <!-- Anonymous only -->
+          <li class="nav-item" *ngIf="!isAdmin">
             <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
           </li>
+
+          <!-- Admin only -->
+          <li class="nav-item" *ngIf="isAdmin">
+            <a class="nav-link" [routerLink]="['admin', 'dashboard']">Dashboard</a>
+          </li>
+
+          <!-- Authorized only -->
+          <li class="nav-item" *ngIf="isAdmin">
+            <!--<a class="nav-link" (click)="logout()">Logout</a>-->
+            <!--<button id="btnLogout" value="Logout"  (click)="logout()" class="btn btn-success">Logout</button>-->
+            <a href="#" (click)="logout()" class="nav-link">Logout</a>
+          </li>
+
 
         </ul>
       </div>
