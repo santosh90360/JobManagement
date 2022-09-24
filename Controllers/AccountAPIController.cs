@@ -33,6 +33,24 @@ namespace JobManagement.Controllers
             }
             return _response;
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<object> Login([FromBody] RegistrationDto registrationDto)
+        {
+            try
+            {
+                RegistrationDto registrationResult = await _accountServiceRepository.LoginUser(registrationDto);
+                _response.Result = registrationResult;
+            }
+            catch (Exception ex)
+            {
+                _response.IsSuccess = false;
+                _response.ErrorMessages = new List<string> { ex.Message.ToString() };
+            }
+            return _response;
+        }
+
         [HttpGet]
         [Route("getproduct")]
         public IEnumerable<Product> Get()

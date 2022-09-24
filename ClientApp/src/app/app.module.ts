@@ -15,6 +15,8 @@ import { ProductComponent } from './product/product.component';
 import { Registration } from './models/registration';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { DashboardComponent } from './jobseeker/dashboard/dashboard.component';
+
 
 
 
@@ -27,7 +29,8 @@ import { RegistrationComponent } from './registration/registration.component';
     FetchDataComponent,
     ProductComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,8 @@ import { RegistrationComponent } from './registration/registration.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'product', component: ProductComponent },
       { path: 'register', component: RegistrationComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'login', component: LoginComponent },
+      { path: 'dashboard', component: DashboardComponent }
 
     ])
   ],
