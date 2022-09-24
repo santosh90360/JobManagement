@@ -15,6 +15,7 @@ namespace JobManagement.Models
         public string Password { get; set; }
         public string? Gender { get; set; }
         public string? Mobile { get; set; }
+        public int? UserType { get; set; }
         public string? Photo { get; set; }
         public bool? IsActive { get; set; }
         public bool? IsDelete { get; set; }

@@ -29,13 +29,26 @@ export class LoginComponent implements OnInit {
       data => {
         debugger;
         if (data.isSuccess == true) {
+          debugger;
           //this.authService.login(data.result.userType);
           //this.authService.isLogin = true;
           this.userReg = new Registration();
-          this.authService.login(Role.Admin);
-          this.router.navigate(['/']);
+          this.authService.login(data.result.userType);
+         
+          if (data.result.userType == 1) {
+            this.router.navigate(['/']);
+          }
+          if (data.result.userType == 2) {
+            this.router.navigate(['/admin/dashboard']);
+          }
+          if (data.result.userType == 3) {
+            this.router.navigate(['/jobseeker']);
+          }
+
+
+         
           //this.router.navigate(['dashboard']);
-          debugger;
+         
         }
         else {
           alert(data.Message);

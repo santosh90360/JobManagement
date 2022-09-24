@@ -71,6 +71,9 @@ namespace JobManagement.Migrations
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserType")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Registrations");

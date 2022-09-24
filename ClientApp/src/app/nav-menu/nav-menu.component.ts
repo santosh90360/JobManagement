@@ -31,11 +31,18 @@ export class NavMenuComponent {
     return this.authService.hasRole(Role.Admin);
   }
 
+  get isJobSeeker() {
+    return this.authService.hasRole(Role.JobSeeker);
+  }
+  get isUser() {
+    return this.authService.hasRole(Role.User);
+  }
   //get isLogin() {
   //  return this.authService.hasRole(Role.Login);
   //}
 
   logout() {
+    this.authService.hasRole(Role.User);
     this.authService.logout();
     this.router.navigate(['login']);
   }

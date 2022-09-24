@@ -19,15 +19,15 @@
         <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }">
+              [routerLinkActiveOptions]="{ exact: true }" *ngIf="!(isAdmin===true || isJobSeeker===true)">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
-          <!--<li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isJobSeeker">
             <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['link-active']">
+          <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isJobSeeker">
             <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-          </li>-->
+          </li>
 
           <!-- Authorized only -->
           <li class="nav-item" *ngIf="isAdmin">
@@ -35,12 +35,12 @@
           </li>
 
           <!-- Anonymous only -->
-          <li class="nav-item" *ngIf="!isAdmin">
+          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true)">
             <a class="nav-link text-dark" [routerLink]="['/register']">Registration</a>
           </li>
 
           <!-- Anonymous only -->
-          <li class="nav-item" *ngIf="!isAdmin">
+          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true)">
             <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
           </li>
 
@@ -49,8 +49,13 @@
             <a class="nav-link" [routerLink]="['admin', 'dashboard']">Dashboard</a>
           </li>
 
+          <!-- Admin only -->
+          <li class="nav-item" *ngIf="isJobSeeker">
+            <a class="nav-link" [routerLink]="['/jobseeker']">Dashboard</a>
+          </li>
+
           <!-- Authorized only -->
-          <li class="nav-item" *ngIf="isAdmin">
+          <li class="nav-item" *ngIf="isAdmin || isJobSeeker">
             <!--<a class="nav-link" (click)="logout()">Logout</a>-->
             <!--<button id="btnLogout" value="Logout"  (click)="logout()" class="btn btn-success">Logout</button>-->
             <a href="#" (click)="logout()" class="nav-link">Logout</a>

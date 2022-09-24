@@ -18,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   userRegistration(registrationForm: NgForm): void {
-    //registrationForm.value.userType = 'J';
+    registrationForm.value.userType = '3'; // For Job seeker
     registrationForm.value.mobile = "";
     registrationForm.value.gender = '';
     registrationForm.value.middleName = '';

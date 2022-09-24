@@ -15,7 +15,7 @@ import { ProductComponent } from './product/product.component';
 import { Registration } from './models/registration';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { DashboardComponent } from './jobseeker/dashboard/dashboard.component';
+import { DashboardComponent as DashboardComponentJobSeeker } from './jobseeker/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserDirective } from './directives/user.directive';
 import { UserRoleDirective } from './directives/user-role.directive';
@@ -34,7 +34,7 @@ import { AuthService } from './services/auth.service';
     ProductComponent,
     RegistrationComponent,
     LoginComponent,
-    DashboardComponent,
+    DashboardComponentJobSeeker,
     UserDirective,
     UserRoleDirective
   ],

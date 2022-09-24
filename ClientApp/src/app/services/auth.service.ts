@@ -20,10 +20,9 @@ export class AuthService {
     this.user = { Role: role };
   }
 
-  logout() {
-    alert('logout');
+  logout() {  
     this.user = new User();
-    this.isAuthorized();
+    //this.isAuthorized();
     
   }
 }

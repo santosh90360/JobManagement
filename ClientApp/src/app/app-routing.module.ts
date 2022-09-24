@@ -38,6 +38,12 @@ const routes: Routes = [
       },
 
       {
+        path: 'jobseeker',
+        canActivate: [AuthGuard],
+        component: DashboardComponent
+      },
+
+      {
         path: 'login',
         component: LoginComponent
       },
