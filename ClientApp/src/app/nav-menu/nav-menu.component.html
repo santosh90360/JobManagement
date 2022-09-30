@@ -19,14 +19,21 @@
         <ul class="navbar-nav flex-grow">
           <li class="nav-item"
               [routerLinkActive]="['link-active']"
-              [routerLinkActiveOptions]="{ exact: true }" *ngIf="!(isAdmin===true || isJobSeeker===true)">
+              [routerLinkActiveOptions]="{ exact: true }" *ngIf="!(isAdmin===true || isJobSeeker===true || isCompany===true)">
             <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
+
+          <li class="nav-item"
+              [routerLinkActive]="['link-active']"
+              [routerLinkActiveOptions]="{ exact: true }" *ngIf="!(isAdmin===true || isJobSeeker===true || isCompany===true)">
+            <a class="nav-link text-dark" [routerLink]="['/job-list']">Job List</a>
+          </li>
+
           <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isJobSeeker">
-            <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+            <a class="nav-link text-dark" [routerLink]="['/counter']">Job List</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="isJobSeeker">
-            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Applied job list</a>
           </li>
 
           <!-- Authorized only -->
@@ -35,12 +42,17 @@
           </li>
 
           <!-- Anonymous only -->
-          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true)">
-            <a class="nav-link text-dark" [routerLink]="['/register']">Registration</a>
+          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true || isCompany===true)">
+            <a class="nav-link text-dark" [routerLink]="['/register']">Jobseeker Registration</a>
           </li>
 
           <!-- Anonymous only -->
-          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true)">
+          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true || isCompany===true)">
+            <a class="nav-link text-dark" [routerLink]="['/job-provider-register']">Job Provider Registration</a>
+          </li>
+
+          <!-- Anonymous only -->
+          <li class="nav-item" *ngIf="!(isAdmin===true || isJobSeeker===true || isCompany===true)">
             <a class="nav-link text-dark" [routerLink]="['/login']">Login</a>
           </li>
 
@@ -49,15 +61,23 @@
             <a class="nav-link" [routerLink]="['admin', 'dashboard']">Dashboard</a>
           </li>
 
-          <!-- Admin only -->
+          <li class="nav-item" *ngIf="isAdmin">
+            <a class="nav-link" [routerLink]="['admin', 'add-job']">Add Job</a>
+          </li>
+
+
+          <!-- JobSeeker only -->
           <li class="nav-item" *ngIf="isJobSeeker">
-            <a class="nav-link" [routerLink]="['/jobseeker']">Dashboard</a>
+            <a class="nav-link" [routerLink]="['jobseeker', 'dashboard']">Dashboard</a>
+          </li>
+
+          <!-- JobSeeker only -->
+          <li class="nav-item" *ngIf="isCompany">
+            <a class="nav-link" [routerLink]="['company', 'dashboard']">Dashboard</a>
           </li>
 
           <!-- Authorized only -->
-          <li class="nav-item" *ngIf="isAdmin || isJobSeeker">
-            <!--<a class="nav-link" (click)="logout()">Logout</a>-->
-            <!--<button id="btnLogout" value="Logout"  (click)="logout()" class="btn btn-success">Logout</button>-->
+          <li class="nav-item" *ngIf="isAdmin || isJobSeeker || isCompany">
             <a href="#" (click)="logout()" class="nav-link">Logout</a>
           </li>
 

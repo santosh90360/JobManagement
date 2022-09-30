@@ -38,11 +38,14 @@ export class LoginComponent implements OnInit {
           if (data.result.userType == 1) {
             this.router.navigate(['/']);
           }
-          if (data.result.userType == 2) {
+          else if (data.result.userType == 2) {
             this.router.navigate(['/admin/dashboard']);
           }
-          if (data.result.userType == 3) {
-            this.router.navigate(['/jobseeker']);
+          else if (data.result.userType == 3) {
+            this.router.navigate(['/jobseeker/dashboard']);
+          }
+          else if (data.result.userType == 4) {
+            this.router.navigate(['/company/dashboard']);
           }
 
 

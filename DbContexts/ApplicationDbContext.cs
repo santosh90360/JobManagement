@@ -9,6 +9,7 @@ namespace JobManagement.DbContexts
 
         }
         public DbSet<Registration> Registrations { get; set; }
+        public DbSet<JobDetail> JobDetails { get; set; }
 
     }
 }

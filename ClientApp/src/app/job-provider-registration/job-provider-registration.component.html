@@ -1,0 +1,39 @@
+<div class="contaienr registrationForm">
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 style="border-bottom:solid 2px green;">Company registration form</h3>
+
+      <!-- Register -->
+      <div class="tab-content" id="tab2">
+
+        <form #registrationForm="ngForm" (ngSubmit)="userRegistration(registrationForm)">
+
+
+          <p class="form-row form-row-wide">
+            <div class="form-group">
+              <label for="firstName">Company Name</label>
+              <input id="firstName" type="text" class="form-control" name="firstName" [(ngModel)]="userReg.firstName" maxlength="150">
+            </div>
+
+            <div class="form-group">
+              <label for="firstName">Mobile Number</label>
+              <input id="mobile" type="text" class="form-control" name="mobile" [(ngModel)]="userReg.mobile" maxlength="10">
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input id="email" type="text" class="form-control" name="email" [(ngModel)]="userReg.email" maxlength="150">
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input id="password" type="password" class="form-control" name="password" [(ngModel)]="userReg.password" maxlength="30">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-block btn-success">Register</button>
+
+</form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,11 +15,13 @@ import { ProductComponent } from './product/product.component';
 import { Registration } from './models/registration';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { DashboardComponent as DashboardComponentJobSeeker } from './jobseeker/dashboard/dashboard.component';
+//import { DashboardComponent as DashboardComponentJobSeeker } from './jobseeker/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserDirective } from './directives/user.directive';
 import { UserRoleDirective } from './directives/user-role.directive';
 import { AuthService } from './services/auth.service';
+import { JobProviderRegistrationComponent } from './job-provider-registration/job-provider-registration.component';
+
 
 
 
@@ -33,8 +35,9 @@ import { AuthService } from './services/auth.service';
     FetchDataComponent,
     ProductComponent,
     RegistrationComponent,
+    JobProviderRegistrationComponent,
     LoginComponent,
-    DashboardComponentJobSeeker,
+    //DashboardComponentJobSeeker,
     UserDirective,
     UserRoleDirective
   ],

@@ -34,6 +34,9 @@ export class NavMenuComponent {
   get isJobSeeker() {
     return this.authService.hasRole(Role.JobSeeker);
   }
+  get isCompany() {
+    return this.authService.hasRole(Role.Company);
+  }
   get isUser() {
     return this.authService.hasRole(Role.User);
   }
